@@ -10,6 +10,7 @@ import { ProductType } from "@/contexts/ProductsContext";
 import { Badge } from "./ui/badge";
 import { ReactElement } from "react";
 import { Button } from "./ui/button";
+import ViewButton from "./ViewButton";
 
 type PropsType = {
   product: ProductType;
@@ -59,7 +60,7 @@ function ProductCard({ product }: PropsType) {
       </CardContent>
       <CardFooter className="flex justify-between">
         <span className="font-bold text-3xl">฿{product.price}</span>
-        <Button variant="default">View More</Button>
+        <ViewButton product={product} />
       </CardFooter>
     </Card>
   );
