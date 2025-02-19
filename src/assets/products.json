@@ -1,0 +1,46 @@
+{
+  "products": [
+    {
+      "id": "001",
+      "name": "Pink Jumper My Melody Figure",
+      "category": "FIGURE",
+      "price": 500
+    },
+    {
+      "id": "002",
+      "name": "My Melody Strawberry Cake",
+      "category": "PLUSH",
+      "price": 1200
+    },
+    {
+      "id": "0003",
+      "name": "Baby My Melody Small Bag",
+      "category": "OTHERS",
+      "price": 400
+    },
+    {
+      "id": "0004",
+      "name": "Rose Fairy My Melody",
+      "category": "PLUSH",
+      "price": 1000
+    },
+    {
+      "id": "0005",
+      "name": "Violet Fairy My Melody",
+      "category": "PLUSH",
+      "price": 1000
+    },
+    {
+      "id": "0006",
+      "name": "Pink Macaron My Melody",
+      "category": "FIGURE",
+      "price": 650
+    },
+    {
+      "id": "0004",
+      "name": "White Cat Princess My Melody",
+      "category": "PLUSH",
+      "price": 1400
+    }
+  ]
+}
