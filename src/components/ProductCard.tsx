@@ -9,7 +9,6 @@ import {
 import { ProductType } from "@/contexts/ProductsContext";
 import { Badge } from "./ui/badge";
 import { ReactElement } from "react";
-import { Button } from "./ui/button";
 import ViewButton from "./ViewButton";
 
 type PropsType = {
