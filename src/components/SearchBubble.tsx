@@ -26,15 +26,36 @@ function SearchBubble({ activeFilter, searchTerm, setSearchTerm }: PropsType) {
     }
   }, [isExpanded]);
 
+  const clearSearch = () => {
+    setSearchTerm("");
+    productsDispatch({
+      type: productActions.UPDATE_FILTER,
+      filter: activeFilter.toUpperCase(),
+      searchTerm: "",
+    });
+  };
+
   const toggleExpand = () => {
     setIsExpanded(!isExpanded);
     if (isExpanded) {
-      setSearchTerm("");
-      productsDispatch({
-        type: productActions.UPDATE_FILTER,
-        filter: activeFilter.toUpperCase(),
-        searchTerm: "",
-      });
+      clearSearch();
+    }
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    switch (e.key) {
+      case "Escape":
+        if (isMulticolumn) {
+          clearSearch();
+        } else {
+          toggleExpand();
+        }
+        break;
+      case "Enter":
+        (e.target as HTMLInputElement).blur();
+        break;
+      default:
+        break;
     }
   };
 
@@ -59,6 +80,8 @@ function SearchBubble({ activeFilter, searchTerm, setSearchTerm }: PropsType) {
               searchTerm: e.target.value,
             });
           }}
+          onBlur={searchTerm === "" ? toggleExpand : () => {}}
+          onKeyDown={handleKeyDown}
           className="border-none shadow-none p-0 focus-visible:outline-none focus-visible:ring-transparent"
         />
       </div>
