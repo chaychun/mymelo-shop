@@ -36,11 +36,11 @@ function ViewButton({ product, badge, img }: PropsType) {
   const isDesktop = useMediaQuery("(min-width: 768px)");
 
   const footer = (
-    <div className="flex justify-between">
-      <span className="font-bold text-3xl">฿{product.price}</span>
-      <div className="flex gap-2">
+    <div className="flex flex-col items-start xs:flex-row justify-between gap-6">
+      <span className="font-bold text-4xl">฿{product.price}</span>
+      <div className="flex flex-row gap-2">
         <NumberField minValue={0} defaultValue={1}>
-          <FieldGroup className="flex h-10 p-0 w-40">
+          <FieldGroup className="flex h-10 p-0 w-[calc(100vw-108px-5.5rem)] xs:w-40">
             <NumberFieldStepper slot="decrement" className="flex-0 p-2">
               <Minus className="size-4" />
             </NumberFieldStepper>
@@ -65,7 +65,7 @@ function ViewButton({ product, badge, img }: PropsType) {
           <img
             src={img}
             alt={product.name}
-            className="w-[70%] max-h-min mx-auto"
+            className="w-[80%] max-h-min mx-auto"
           />
           <DialogTitle className="text-2xl">{product.name}</DialogTitle>
           <DialogDescription>
@@ -87,11 +87,7 @@ function ViewButton({ product, badge, img }: PropsType) {
       </DrawerTrigger>
       <DrawerContent className="px-6 pb-6">
         <DrawerHeader className="space-y-4">
-          <img
-            src={img}
-            alt={product.name}
-            className="w-[70%] max-h-min mx-auto"
-          />
+          <img src={img} alt={product.name} className=" max-h-min mx-auto" />
           <div>
             <DrawerTitle className="text-2xl">{product.name}</DrawerTitle>
             {badge}
