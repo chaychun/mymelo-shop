@@ -103,4 +103,5 @@
 
 @theme {
   --breakpoint-xs: 30rem;
+  --breakpoint-two-column: 56rem;
 }
