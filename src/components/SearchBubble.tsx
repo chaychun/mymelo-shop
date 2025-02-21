@@ -28,7 +28,7 @@ function SearchBubble({ activeFilter, searchTerm, setSearchTerm }: PropsType) {
 
   const toggleExpand = () => {
     setIsExpanded(!isExpanded);
-    if (!isExpanded) {
+    if (isExpanded) {
       setSearchTerm("");
       productsDispatch({
         type: productActions.UPDATE_FILTER,
@@ -85,7 +85,7 @@ function SearchBubble({ activeFilter, searchTerm, setSearchTerm }: PropsType) {
         <motion.button
           whileTap={{ scale: 0.95 }}
           onClick={toggleExpand}
-          className="z-1 flex items-center justify-center w-11 h-11 text-white bg-primary rounded-lg shadow-lg focus:outline-none hover:bg-neutral-800 transition-colors"
+          className="z-1 flex items-center justify-center w-11 h-11 text-white bg-primary rounded-lg shadow-lg focus:outline-none hover:bg-neutral-800 transition-colors cursor-pointer"
         >
           {isExpanded ?
             <X size={24} />
