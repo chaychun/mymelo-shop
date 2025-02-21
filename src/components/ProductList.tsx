@@ -2,8 +2,7 @@ import useProducts from "@/hooks/useProducts";
 import ProductCard from "./ProductCard";
 import { Button } from "./ui/button";
 import { useState } from "react";
-import { Input } from "./ui/input";
-import { Search } from "lucide-react";
+import SearchBubble from "./SearchBubble";
 
 const FILTERS = ["All", "Plush", "Figure", "Others"];
 
@@ -42,22 +41,11 @@ function ProductList() {
         <div className="flex w-88 bg-neutral-50 p-1 gap-1 shadow-md rounded-lg justify-self-center h-11 items-center">
           {filterButtons}
         </div>
-        <div className="flex items-center gap-3 w-88 bg-neutral-50 border-none border-neutral-300 rounded-lg px-2 h-11 shadow-lg">
-          <Search color="var(--color-neutral-400)" />
-          <Input
-            placeholder="Search..."
-            value={searchTerm}
-            onChange={(e) => {
-              setSearchTerm(e.target.value);
-              productsDispatch({
-                type: productActions.UPDATE_FILTER,
-                filter: activeFilter.toUpperCase(),
-                searchTerm: e.target.value,
-              });
-            }}
-            className="border-none shadow-none p-0 focus-visible:outline-none focus-visible:ring-transparent"
-          />
-        </div>
+        <SearchBubble
+          activeFilter={activeFilter}
+          searchTerm={searchTerm}
+          setSearchTerm={setSearchTerm}
+        />
       </header>
       <div className="flex flex-wrap justify-center gap-8 gap-y-24 pt-24">
         {productList}
