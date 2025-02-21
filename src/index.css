@@ -100,3 +100,7 @@
 }
 
 @plugin "tailwind-scrollbar-hide";
+
+@theme {
+  --breakpoint-xs: 30rem;
+}
