@@ -35,6 +35,7 @@ const buttonVariants = cva(
           "border-1 border-transparent bg-white shadow-lg cursor-pointer hover:text-accent-foreground",
         filterInactive:
           "border-1 border-transparent hover:bg-accent cursor-pointer hover:text-accent-foreground",
+        disabled: "inert bg-neutral-400 text-primary-foreground",
       },
       size: {
         default: "h-10 px-4 py-2",
