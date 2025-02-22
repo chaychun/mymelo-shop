@@ -100,7 +100,10 @@ function SearchBubble({ activeFilter, searchTerm, setSearchTerm }: PropsType) {
           {isExpanded && (
             <motion.form
               initial={{ width: 0, opacity: 0 }}
-              animate={{ width: "calc(100vw - 7.5rem)", opacity: 1 }}
+              animate={{
+                width: "calc(100vw - 11rem)",
+                opacity: 1,
+              }}
               exit={{ width: 0, opacity: 0 }}
               transition={{ duration: 0.2 }}
             >

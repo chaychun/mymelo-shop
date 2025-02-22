@@ -99,7 +99,9 @@
   }
 }
 
-@plugin "tailwind-scrollbar-hide";
+body::-webkit-scrollbar {
+  display: none;
+}
 
 @theme {
   --breakpoint-xs: 30rem;
