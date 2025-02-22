@@ -25,6 +25,7 @@ import { FieldGroup } from "./ui/field";
 import { NumberFieldInput, NumberFieldStepper } from "./ui/numberfield";
 import { Minus, Plus } from "lucide-react";
 import useCart from "@/hooks/useCart";
+import { cn } from "@/lib/utils";
 
 type PropsType = {
   product: ProductType;
@@ -106,9 +107,13 @@ function ViewButton({ product, badge, img }: PropsType) {
         Change Quantity
       </Button>;
 
+  const grayPrice = newQty === 0 ? "text-neutral-400" : "";
+
   const footer = (
     <div className="flex flex-col items-start xs:flex-row justify-between gap-6">
-      <span className="font-bold text-4xl">฿ {totalPrice}</span>
+      <span className={cn("font-bold text-4xl", grayPrice)}>
+        ฿ {totalPrice}
+      </span>
       <div className="flex flex-row gap-2">
         <NumberField
           minValue={0}
