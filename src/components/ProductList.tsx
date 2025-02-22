@@ -16,7 +16,7 @@ function ProductList() {
       <Button
         key={filter}
         variant={activeFilter === filter ? "filterActive" : "filterInactive"}
-        onClick={() => {
+        onPress={() => {
           setActiveFilter(filter);
           productsDispatch({
             type: productActions.UPDATE_FILTER,
