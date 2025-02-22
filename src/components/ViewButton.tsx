@@ -109,11 +109,22 @@ function ViewButton({ product, badge, img }: PropsType) {
 
   const grayPrice = newQty === 0 ? "text-neutral-400" : "";
 
+  const priceLabel =
+    newQty <= 1 ? null : (
+      <span className="text-sm text-neutral-400">
+        ฿{product.price} per item
+      </span>
+    );
+
   const footer = (
     <div className="flex flex-col items-start xs:flex-row justify-between gap-6">
-      <span className={cn("font-bold text-4xl", grayPrice)}>
-        ฿ {totalPrice}
-      </span>
+      <div className="flex flex-col">
+        <span className={cn("font-bold text-4xl", grayPrice)}>
+          ฿ {totalPrice}
+        </span>
+        {priceLabel}
+      </div>
+
       <div className="flex flex-row gap-2">
         <NumberField
           minValue={0}
