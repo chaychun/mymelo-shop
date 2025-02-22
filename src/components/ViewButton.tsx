@@ -24,6 +24,7 @@ import { NumberField } from "react-aria-components";
 import { FieldGroup } from "./ui/field";
 import { NumberFieldInput, NumberFieldStepper } from "./ui/numberfield";
 import { Minus, Plus } from "lucide-react";
+import useCart from "@/hooks/useCart";
 
 type PropsType = {
   product: ProductType;
@@ -32,19 +33,29 @@ type PropsType = {
 };
 
 function ViewButton({ product, badge, img }: PropsType) {
-  const [open, setOpen] = useState(false);
   const isDesktop = useMediaQuery("(min-width: 768px)");
+  const [open, setOpen] = useState(false);
+  const [newQty, setNewQty] = useState(2);
+
+  const { cart, cartDispatch, cartActions } = useCart();
+  const currentItem = cart.find((item) => item.id === product.id);
+
+  const totalPrice = newQty * product.price;
 
   const footer = (
     <div className="flex flex-col items-start xs:flex-row justify-between gap-6">
-      <span className="font-bold text-4xl">฿{product.price}</span>
+      <span className="font-bold text-4xl">฿ {totalPrice}</span>
       <div className="flex flex-row gap-2">
-        <NumberField minValue={0} defaultValue={1}>
+        <NumberField
+          minValue={0}
+          defaultValue={1}
+          onChange={(qty) => setNewQty(qty)}
+        >
           <FieldGroup className="flex h-10 p-0 w-[calc(100vw-108px-5.5rem)] xs:w-40">
             <NumberFieldStepper slot="decrement" className="flex-0 p-2">
               <Minus className="size-4" />
             </NumberFieldStepper>
-            <NumberFieldInput className="text-center" />
+            <NumberFieldInput value={newQty} className="text-center" />
             <NumberFieldStepper slot="increment" className="flex-0 p-2">
               <Plus className="size-4" />
             </NumberFieldStepper>
