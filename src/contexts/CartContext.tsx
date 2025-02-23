@@ -7,7 +7,6 @@ type CartItemType = {
 };
 
 const ACTIONS = {
-  ADD: "ADD",
   CHANGE_QTY: "CHANGE_QTY",
   REMOVE: "REMOVE",
 };
@@ -21,15 +20,6 @@ type ActionType = {
 
 function cartReducer(cart: CartItemType[], action: ActionType): CartItemType[] {
   switch (action.type) {
-    case ACTIONS.ADD: {
-      const { id, price, qty } = action;
-      const filteredCart = cart.filter((item) => item.id !== id);
-      if (qty) {
-        return [...filteredCart, { id, price, qty }];
-      } else {
-        throw new Error("Requested ADD without providing quantity.");
-      }
-    }
     case ACTIONS.CHANGE_QTY: {
       const { id, price, qty } = action;
       const filteredCart = cart.filter((item) => item.id !== id);
