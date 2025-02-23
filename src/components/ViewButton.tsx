@@ -154,7 +154,7 @@ function ViewButton({ product, badge, img }: PropsType) {
       <DialogTrigger asChild>
         <Button className="cursor-pointer">Add to Cart</Button>
       </DialogTrigger>
-      <DialogContent className="">
+      <DialogContent className="min-w-xl">
         <DialogHeader className="space-y-4">
           <img
             src={img}
@@ -181,6 +181,7 @@ function ViewButton({ product, badge, img }: PropsType) {
             <DrawerTitle className="text-2xl">{product.name}</DrawerTitle>
             {badge}
           </div>
+          <DrawerDescription>{product.description}</DrawerDescription>
         </DrawerHeader>
         <DrawerFooter>{footer}</DrawerFooter>
       </DrawerContent>

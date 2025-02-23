@@ -37,7 +37,7 @@ function ProductCard({ product }: PropsType) {
   const badge = getCategoryBadge(product);
 
   return (
-    <Card className="bg-neutral-50 flex-grow max-w-88 min-w-88 shadow-lg">
+    <Card className="bg-neutral-50 flex-grow max-w-88 min-w-88 shadow-lg flex flex-col justify-between">
       <CardHeader className="flex relative justify-between">
         <div>
           <img

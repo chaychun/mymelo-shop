@@ -27,7 +27,7 @@ function ProductList() {
             searchTerm: searchTerm,
           });
         }}
-        className="flex-grow h-10 font-normal"
+        className="flex-grow h-10 font-medium"
       >
         {filter}
       </Button>
@@ -52,7 +52,7 @@ function ProductList() {
       </header>
       {isEmpty ?
         <EmptyState where="the search result" />
-      : <div className="flex flex-wrap justify-center gap-8 gap-y-24 pt-36">
+      : <div className="flex flex-wrap justify-center gap-8 gap-y-24 pt-40 pb-22">
           {productList}
         </div>
       }
