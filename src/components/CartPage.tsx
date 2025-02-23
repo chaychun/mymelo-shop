@@ -11,7 +11,7 @@ type PropsType = {
 };
 
 function CartPage({ setInCartView, isOrdered, setIsOrdered }: PropsType) {
-  const { totalPrice } = useCart();
+  const { cartDispatch, cartActions, totalPrice } = useCart();
 
   const orderSuccessPage = (
     <div className="min-h-screen flex flex-col justify-center items-center my-auto">
@@ -49,6 +49,12 @@ function CartPage({ setInCartView, isOrdered, setIsOrdered }: PropsType) {
       transition={{ delay: isOrdered ? 1 : 0, duration: 0.5 }}
       onClick={() => {
         setIsOrdered(true);
+        cartDispatch({
+          type: cartActions.CLEAR,
+          id: "",
+          name: "",
+          price: 0,
+        });
       }}
       className={`z-1 w-14 h-14 fixed bottom-4 right-4 text-white flex justify-center items-center rounded-lg shadow-lg cursor-pointer ${isOrdered ? "bg-emerald-400" : "bg-primary"}`}
     >
