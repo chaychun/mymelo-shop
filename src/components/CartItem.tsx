@@ -30,7 +30,7 @@ function CartItem({ item }: PropsType) {
       <div className="flex flex-col justify-center gap-2">
         <div className="flex justify-between">
           <h2 className="font-medium text-sm max-w-[70%]">{item.name}</h2>
-          <span className="font-bold text-lg">฿{item.price}</span>
+          <span className="font-bold text-lg">฿{item.price * item.qty}</span>
         </div>
         <div className="flex justify-between">
           <NumberField
