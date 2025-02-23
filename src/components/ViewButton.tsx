@@ -162,12 +162,7 @@ function ViewButton({ product, badge, img }: PropsType) {
             className="w-[80%] max-h-min mx-auto"
           />
           <DialogTitle className="text-2xl">{product.name}</DialogTitle>
-          <DialogDescription>
-            Elit officia irure ullamco commodo eiusmod tempor ad ullamco culpa
-            et deserunt. Occaecat reprehenderit sit do nulla adipisicing
-            cupidatat labore mollit eiusmod. Pariatur amet mollit ea nisi
-            nostrud laborum deserunt exercitation enim eu Lorem.
-          </DialogDescription>
+          <DialogDescription>{product.description}</DialogDescription>
         </DialogHeader>
         <DialogFooter className="block pt-4">{footer}</DialogFooter>
       </DialogContent>

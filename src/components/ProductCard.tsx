@@ -52,12 +52,7 @@ function ProductCard({ product }: PropsType) {
         {getCategoryBadge(product)}
       </CardHeader>
       <CardContent>
-        <CardDescription>
-          Elit officia irure ullamco commodo eiusmod tempor ad ullamco culpa et
-          deserunt. Occaecat reprehenderit sit do nulla adipisicing cupidatat
-          labore mollit eiusmod. Pariatur amet mollit ea nisi nostrud laborum
-          deserunt exercitation enim eu Lorem.
-        </CardDescription>
+        <CardDescription>{product.description}</CardDescription>
       </CardContent>
       <CardFooter className="flex justify-between">
         <span className="font-bold text-3xl">฿{product.price}</span>
