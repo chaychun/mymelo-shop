@@ -49,7 +49,7 @@ function CartPage({ setInCartView, isOrdered, setIsOrdered }: PropsType) {
     return <CartItem key={item.id} item={item} />;
   });
 
-  const cartPage = <div className="p-4">{cartList}</div>;
+  const cartPage = <div className="p-4 max-w-lg mx-auto">{cartList}</div>;
 
   const submitButton = (
     <motion.button
