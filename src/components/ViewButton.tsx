@@ -122,7 +122,7 @@ function ViewButton({ product, badge, img }: PropsType) {
   const footer = (
     <div className="flex flex-col items-start xs:flex-row justify-between gap-6">
       <div className="inline space-x-4 xs:flex xs:flex-col">
-        <span className={cn("font-bold text-4xl", grayPrice)}>
+        <span className={cn("font-bold text-4xl text-rose-950", grayPrice)}>
           ฿ {totalPrice}
         </span>
         {priceLabel}
@@ -134,13 +134,16 @@ function ViewButton({ product, badge, img }: PropsType) {
           defaultValue={1}
           onChange={(qty) => setNewQty(qty)}
         >
-          <FieldGroup className="flex h-10 p-0 w-[calc(100vw-15.5rem)] xs:w-40">
+          <FieldGroup className="flex h-10 p-0 w-[calc(100vw-15.5rem)] xs:w-40 data-[focus-within]:ring-rose-200 border-rose-100">
             <NumberFieldStepper slot="decrement" className="flex-0 p-2">
-              <Minus className="size-4" />
+              <Minus className="size-4 text-rose-900/70" />
             </NumberFieldStepper>
-            <NumberFieldInput value={newQty} className="text-center" />
+            <NumberFieldInput
+              value={newQty}
+              className="text-center text-rose-950"
+            />
             <NumberFieldStepper slot="increment" className="flex-0 p-2">
-              <Plus className="size-4" />
+              <Plus className="size-4 text-rose-900/70" />
             </NumberFieldStepper>
           </FieldGroup>
         </NumberField>
@@ -154,15 +157,19 @@ function ViewButton({ product, badge, img }: PropsType) {
       <DialogTrigger asChild>
         <Button className="cursor-pointer">Add to Cart</Button>
       </DialogTrigger>
-      <DialogContent className="min-w-xl">
+      <DialogContent className="min-w-xl bg-gradient-to-b from-pink-50 to-white">
         <DialogHeader className="space-y-4">
           <img
             src={img}
             alt={product.name}
             className="w-[80%] max-h-min mx-auto"
           />
-          <DialogTitle className="text-2xl">{product.name}</DialogTitle>
-          <DialogDescription>{product.description}</DialogDescription>
+          <DialogTitle className="text-2xl text-rose-950">
+            {product.name}
+          </DialogTitle>
+          <DialogDescription className="text-rose-900/70">
+            {product.description}
+          </DialogDescription>
         </DialogHeader>
         <DialogFooter className="block pt-4">{footer}</DialogFooter>
       </DialogContent>
@@ -174,14 +181,18 @@ function ViewButton({ product, badge, img }: PropsType) {
       <DrawerTrigger asChild>
         <Button className="cursor-pointer">Add to Cart</Button>
       </DrawerTrigger>
-      <DrawerContent className="px-6 pb-6">
+      <DrawerContent className="px-6 pb-6 bg-gradient-to-b from-pink-50 to-white">
         <DrawerHeader className="space-y-4 overflow-y-scroll scrollbar-hide">
           <img src={img} alt={product.name} className=" max-h-min mx-auto" />
           <div>
-            <DrawerTitle className="text-2xl">{product.name}</DrawerTitle>
+            <DrawerTitle className="text-2xl text-rose-950">
+              {product.name}
+            </DrawerTitle>
             {badge}
           </div>
-          <DrawerDescription>{product.description}</DrawerDescription>
+          <DrawerDescription className="text-rose-900/70">
+            {product.description}
+          </DrawerDescription>
         </DrawerHeader>
         <DrawerFooter>{footer}</DrawerFooter>
       </DrawerContent>

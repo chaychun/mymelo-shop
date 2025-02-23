@@ -37,7 +37,7 @@ function ProductCard({ product }: PropsType) {
   const badge = getCategoryBadge(product);
 
   return (
-    <Card className="bg-neutral-50 flex-grow max-w-88 min-w-88 shadow-lg flex flex-col justify-between">
+    <Card className="bg-gradient-to-b from-pink-50 to-white flex-grow max-w-88 min-w-88 shadow-lg flex flex-col justify-between">
       <CardHeader className="flex relative justify-between">
         <div>
           <img
@@ -47,15 +47,21 @@ function ProductCard({ product }: PropsType) {
           />
         </div>
         <div className="min-h-[3em]">
-          <CardTitle className="text-xl w-42">{product.name}</CardTitle>
+          <CardTitle className="text-xl w-42 text-rose-950">
+            {product.name}
+          </CardTitle>
         </div>
         {getCategoryBadge(product)}
       </CardHeader>
       <CardContent>
-        <CardDescription>{product.description}</CardDescription>
+        <CardDescription className="text-rose-900/70">
+          {product.description}
+        </CardDescription>
       </CardContent>
       <CardFooter className="flex justify-between">
-        <span className="font-bold text-3xl">฿{product.price}</span>
+        <span className="font-bold text-3xl text-rose-950">
+          ฿{product.price}
+        </span>
         <ViewButton product={product} badge={badge} img={img} />
       </CardFooter>
     </Card>

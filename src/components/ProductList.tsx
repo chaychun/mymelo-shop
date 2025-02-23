@@ -27,7 +27,7 @@ function ProductList() {
             searchTerm: searchTerm,
           });
         }}
-        className="flex-grow h-10 font-medium"
+        className="flex-grow h-10 font-medium text-rose-950"
       >
         {filter}
       </Button>
@@ -41,7 +41,7 @@ function ProductList() {
   return (
     <>
       <header className="flex flex-wrap gap-8 justify-center items-center">
-        <div className="z-1 fixed top-4 left-4 flex w-[calc(100vw-2rem)] h-12 bg-neutral-100 p-1 gap-1 shadow-lg rounded-lg justify-self-center items-center">
+        <div className="z-1 fixed top-4 left-4 flex w-[calc(100vw-2rem)] h-12 bg-gradient-to-b from-pink-100 to-white p-1 gap-1 shadow-lg rounded-lg justify-self-center items-center">
           {filterButtons}
         </div>
         <SearchBubble

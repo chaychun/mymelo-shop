@@ -63,14 +63,11 @@ function SearchBubble({ activeFilter, searchTerm, setSearchTerm }: PropsType) {
     return (
       <div
         className={cn(
-          "flex items-center gap-3 bg-neutral-100 border-1 border-neutral-300 rounded-lg px-2 h-14 two-column:h-11 shadow-xl focus-within:border-neutral-400 two-column:border-none",
+          "flex items-center gap-3 bg-gradient-to-b from-pink-100 to-white rounded-lg px-2 h-14 two-column:h-11 shadow-lg shadow-pink-300/30",
           className,
         )}
       >
-        <Search
-          color="var(--color-neutral-400)"
-          size={isMulticolumn ? 24 : 28}
-        />
+        <Search color="var(--color-rose-200)" size={isMulticolumn ? 24 : 28} />
         <Input
           ref={inputRef}
           placeholder="Search..."
@@ -85,7 +82,7 @@ function SearchBubble({ activeFilter, searchTerm, setSearchTerm }: PropsType) {
           }}
           onBlur={searchTerm === "" ? toggleExpand : () => {}}
           onKeyDown={handleKeyDown}
-          className="border-none shadow-none p-0 focus-visible:outline-none focus-visible:ring-transparent text-base"
+          className="border-none shadow-none p-0 focus-visible:outline-none focus-visible:ring-transparent text-base selection:bg-rose-300 placeholder:text-rose-200 caret-rose-400 text-rose-900/70"
         />
       </div>
     );
@@ -114,7 +111,7 @@ function SearchBubble({ activeFilter, searchTerm, setSearchTerm }: PropsType) {
         <motion.button
           whileTap={{ scale: 0.95 }}
           onClick={toggleExpand}
-          className="z-1 flex items-center justify-center w-14 h-14 text-white bg-primary rounded-lg shadow-lg focus:outline-none hover:bg-neutral-800 transition-colors cursor-pointer"
+          className="z-1 flex items-center justify-center w-14 h-14 text-white bg-rose-400 rounded-lg shadow-lg shadow-rose-600/50 focus:outline-none hover:bg-rose-500 transition-colors cursor-pointer"
         >
           {isExpanded ?
             <X size={28} />
