@@ -2,6 +2,7 @@ import React from "react";
 import { ArrowLeftIcon, Check, PackageCheck } from "lucide-react";
 import { Button } from "./ui/button";
 import { motion, AnimatePresence } from "framer-motion";
+import useCart from "@/hooks/useCart";
 
 type PropsType = {
   setInCartView: React.Dispatch<React.SetStateAction<boolean>>;
@@ -10,6 +11,8 @@ type PropsType = {
 };
 
 function CartPage({ setInCartView, isOrdered, setIsOrdered }: PropsType) {
+  const { totalPrice } = useCart();
+
   const orderSuccessPage = (
     <div className="min-h-screen flex flex-col justify-center items-center my-auto">
       <PackageCheck size={60} strokeWidth={3} absoluteStrokeWidth />
@@ -53,9 +56,19 @@ function CartPage({ setInCartView, isOrdered, setIsOrdered }: PropsType) {
     </motion.button>
   );
 
+  const priceBar = (
+    <div className="z-1 fixed bottom-4 left-20 h-14 w-[calc(100vw-10em)] px-2 pt-3.5 bg-neutral-100 rounded-lg shadow-lg border-1">
+      <span className="font-semibold text-3xl mx-auto">฿ {totalPrice}</span>
+      <span className="absolute text-neutral-400 text-xs font-light left-1.5 top-0.5">
+        Total Price
+      </span>
+    </div>
+  );
+
   return (
     <div>
       {submitButton}
+      {isOrdered ? null : priceBar}
       {isOrdered ? orderSuccessPage : cartPage}
     </div>
   );
