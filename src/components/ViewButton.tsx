@@ -55,6 +55,7 @@ function ViewButton({ product, badge, img }: PropsType) {
           cartDispatch({
             type: cartActions.REMOVE,
             id: product.id,
+            name: product.name,
             price: product.price,
           });
           setInCart(false);
@@ -76,6 +77,7 @@ function ViewButton({ product, badge, img }: PropsType) {
           cartDispatch({
             type: cartActions.CHANGE_QTY,
             id: product.id,
+            name: product.name,
             price: product.price,
             qty: newQty,
           });
@@ -94,6 +96,7 @@ function ViewButton({ product, badge, img }: PropsType) {
           cartDispatch({
             type: cartActions.CHANGE_QTY,
             id: product.id,
+            name: product.name,
             price: product.price,
             qty: newQty,
           });

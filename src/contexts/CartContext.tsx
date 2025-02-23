@@ -2,6 +2,7 @@ import { useMemo, useReducer, createContext, ReactElement } from "react";
 
 type CartItemType = {
   id: string;
+  name: string;
   price: number;
   qty: number;
 };
@@ -9,11 +10,13 @@ type CartItemType = {
 const ACTIONS = {
   CHANGE_QTY: "CHANGE_QTY",
   REMOVE: "REMOVE",
+  CLEAR: "CLEAR",
 };
 
 type ActionType = {
   type: string;
   id: string;
+  name: string;
   price: number;
   qty?: number;
 };
@@ -21,16 +24,19 @@ type ActionType = {
 function cartReducer(cart: CartItemType[], action: ActionType): CartItemType[] {
   switch (action.type) {
     case ACTIONS.CHANGE_QTY: {
-      const { id, price, qty } = action;
+      const { id, name, price, qty } = action;
       const filteredCart = cart.filter((item) => item.id !== id);
       if (qty) {
-        return [...filteredCart, { id, price, qty }];
+        return [...filteredCart, { id, name, price, qty }];
       } else {
         throw new Error("Requested CHANGE_QTY without providing quantity.");
       }
     }
     case ACTIONS.REMOVE: {
       return cart.filter((item) => item.id !== action.id);
+    }
+    case ACTIONS.CLEAR: {
+      return [];
     }
     default:
       throw new Error(
