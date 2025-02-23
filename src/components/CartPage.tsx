@@ -96,7 +96,7 @@ function CartPage({ setInCartView, isOrdered, setIsOrdered }: PropsType) {
       {isOrdered ?
         orderSuccessPage
       : isEmpty ?
-        <EmptyState />
+        <EmptyState where="the cart" />
       : cartPage}
     </div>
   );

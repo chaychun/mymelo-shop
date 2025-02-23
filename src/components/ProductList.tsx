@@ -51,7 +51,7 @@ function ProductList() {
         />
       </header>
       {isEmpty ?
-        <EmptyState />
+        <EmptyState where="the search result" />
       : <div className="flex flex-wrap justify-center gap-8 gap-y-24 pt-36">
           {productList}
         </div>
