@@ -3,6 +3,7 @@ import { ArrowLeftIcon, Check, PackageCheck } from "lucide-react";
 import { Button } from "./ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 import useCart from "@/hooks/useCart";
+import CartItem from "./CartItem";
 
 type PropsType = {
   setInCartView: React.Dispatch<React.SetStateAction<boolean>>;
@@ -11,7 +12,7 @@ type PropsType = {
 };
 
 function CartPage({ setInCartView, isOrdered, setIsOrdered }: PropsType) {
-  const { cartDispatch, cartActions, totalPrice } = useCart();
+  const { cart, cartDispatch, cartActions, totalPrice } = useCart();
 
   const orderSuccessPage = (
     <div className="min-h-screen flex flex-col justify-center items-center my-auto">
@@ -39,7 +40,11 @@ function CartPage({ setInCartView, isOrdered, setIsOrdered }: PropsType) {
     </div>
   );
 
-  const cartPage = <div></div>;
+  const cartList = cart.map((item) => {
+    return <CartItem key={item.id} item={item} />;
+  });
+
+  const cartPage = <div className="p-4">{cartList}</div>;
 
   const submitButton = (
     <motion.button
