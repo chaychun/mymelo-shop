@@ -1,6 +1,6 @@
 import { useMemo, useReducer, createContext, ReactElement } from "react";
 
-type CartItemType = {
+export type CartItemType = {
   id: string;
   name: string;
   price: number;
@@ -13,7 +13,7 @@ const ACTIONS = {
   CLEAR: "CLEAR",
 };
 
-type ActionType = {
+export type CartActionType = {
   type: string;
   id: string;
   name: string;
@@ -21,7 +21,10 @@ type ActionType = {
   qty?: number;
 };
 
-function cartReducer(cart: CartItemType[], action: ActionType): CartItemType[] {
+function cartReducer(
+  cart: CartItemType[],
+  action: CartActionType,
+): CartItemType[] {
   switch (action.type) {
     case ACTIONS.CHANGE_QTY: {
       const { id, name, price, qty } = action;
