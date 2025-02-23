@@ -11,6 +11,7 @@ const ACTIONS = {
   CHANGE_QTY: "CHANGE_QTY",
   REMOVE: "REMOVE",
   CLEAR: "CLEAR",
+  SORT: "SORT",
 };
 
 export type CartActionType = {
@@ -51,15 +52,17 @@ function cartReducer(
 const initCart: CartItemType[] = [];
 
 function useCartContext(initCart: CartItemType[]) {
-  const [cart, cartDispatch] = useReducer(cartReducer, initCart);
+  const [_cart, cartDispatch] = useReducer(cartReducer, initCart);
 
   const cartActions = useMemo(() => {
     return ACTIONS;
   }, []);
 
-  const totalPrice = cart.reduce((prevValue, item) => {
+  const totalPrice = _cart.reduce((prevValue, item) => {
     return prevValue + item.qty * item.price;
   }, 0);
+
+  const cart = _cart.sort((a, b) => Number(a.id) - Number(b.id));
 
   return { cart, cartDispatch, cartActions, totalPrice };
 }
