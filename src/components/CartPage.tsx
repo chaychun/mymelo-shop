@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import useCart from "@/hooks/useCart";
 import CartItem from "./CartItem";
 import useProducts from "@/hooks/useProducts";
+import EmptyState from "./EmptyState";
 
 type PropsType = {
   setInCartView: React.Dispatch<React.SetStateAction<boolean>>;
@@ -15,6 +16,8 @@ type PropsType = {
 function CartPage({ setInCartView, isOrdered, setIsOrdered }: PropsType) {
   const { cart, cartDispatch, cartActions, totalPrice } = useCart();
   const { productsDispatch, productActions } = useProducts();
+
+  const isEmpty = cart.length === 0;
 
   const orderSuccessPage = (
     <div className="min-h-screen flex flex-col justify-center items-center my-auto">
@@ -86,7 +89,11 @@ function CartPage({ setInCartView, isOrdered, setIsOrdered }: PropsType) {
     <div>
       {submitButton}
       {isOrdered ? null : priceBar}
-      {isOrdered ? orderSuccessPage : cartPage}
+      {isOrdered ?
+        orderSuccessPage
+      : isEmpty ?
+        <EmptyState />
+      : cartPage}
     </div>
   );
 }
