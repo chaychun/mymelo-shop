@@ -4,9 +4,11 @@ import { ProductsProvider } from "./contexts/ProductsContext";
 import { CartProvider } from "./contexts/CartContext";
 import { motion } from "framer-motion";
 import { ShoppingBag, ShoppingCart } from "lucide-react";
+import CartPage from "./components/CartPage";
 
 function App() {
   const [inCartView, setInCartView] = useState(false);
+  const [isOrdered, setIsOrdered] = useState(false);
 
   const pageChangeButton = (
     <motion.button
@@ -23,9 +25,15 @@ function App() {
   return (
     <ProductsProvider>
       <CartProvider>
-        <main className="h-full p-20">
-          {pageChangeButton}
-          <ProductList />
+        <main className="min-h-screen">
+          {!isOrdered && pageChangeButton}
+          {inCartView ?
+            <CartPage
+              setInCartView={setInCartView}
+              isOrdered={isOrdered}
+              setIsOrdered={setIsOrdered}
+            />
+          : <ProductList />}
         </main>
       </CartProvider>
     </ProductsProvider>

@@ -47,7 +47,7 @@ function ProductList() {
           setSearchTerm={setSearchTerm}
         />
       </header>
-      <div className="flex flex-wrap justify-center gap-8 gap-y-24 pt-16">
+      <div className="flex flex-wrap justify-center gap-8 gap-y-24 pt-36">
         {productList}
       </div>
     </>
