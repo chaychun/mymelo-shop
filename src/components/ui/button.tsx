@@ -22,9 +22,9 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          "bg-primary text-primary-foreground data-[hovered]:bg-primary/90",
+          "bg-rose-400 text-white data-[hovered]:bg-rose-500 data-[focus-visible]:ring-rose-300 shadow-lg shadow-rose-300",
         destructive:
-          "bg-destructive text-destructive-foreground data-[hovered]:bg-destructive/90",
+          "bg-neutral-100 text-black data-[hovered]:bg-neutral-200 data-[focus-visible]:ring-neutral-200",
         outline:
           "border border-input bg-background data-[hovered]:bg-accent data-[hovered]:text-accent-foreground",
         secondary:
@@ -34,7 +34,7 @@ const buttonVariants = cva(
         filterActive:
           "border-1 border-transparent bg-white shadow-lg cursor-pointer hover:text-accent-foreground",
         filterInactive:
-          "border-1 border-transparent hover:bg-accent cursor-pointer hover:text-accent-foreground",
+          "border-1 border-transparent hover:bg-white/50 cursor-pointer hover:text-accent-foreground",
         disabled: "inert bg-neutral-400 text-primary-foreground",
       },
       size: {

@@ -25,12 +25,16 @@ function CartItem({ item }: PropsType) {
   ).href;
 
   return (
-    <div className="flex p-4 gap-4 border-b-1">
-      <img src={img} alt={item.name} className="w-[25%]" />
+    <div className="flex p-4 gap-4 border-1 rounded-lg bg-gradient-to-b from-pink-100 to-white justify-between">
+      <img src={img} alt={item.name} className="max-w-[20%]" />
       <div className="flex flex-col justify-center gap-2">
         <div className="flex justify-between">
-          <h2 className="font-medium text-sm max-w-[70%]">{item.name}</h2>
-          <span className="font-bold text-lg">฿{item.price * item.qty}</span>
+          <h2 className="font-medium text-sm max-w-[50%] text-rose-950">
+            {item.name}
+          </h2>
+          <span className="font-bold text-lg text-rose-950">
+            ฿{item.price * item.qty}
+          </span>
         </div>
         <div className="flex justify-between">
           <NumberField
@@ -46,16 +50,16 @@ function CartItem({ item }: PropsType) {
               });
             }}
           >
-            <FieldGroup className="flex h-6 p-0 w-1/2 xs:w-40">
+            <FieldGroup className="flex h-6 p-0 w-1/2 xs:w-40 data-[focus-within]:ring-rose-200 border-rose-100">
               <NumberFieldStepper slot="decrement" className="flex-0 p-2">
-                <Minus className="size-3" />
+                <Minus className="size-3 text-rose-900/70" />
               </NumberFieldStepper>
               <NumberFieldInput
                 value={item.qty}
-                className="text-center text-xs"
+                className="text-center text-xs text-rose-950"
               />
               <NumberFieldStepper slot="increment" className="flex-0 p-2">
-                <Plus className="size-3" />
+                <Plus className="size-3 text-rose-900/70" />
               </NumberFieldStepper>
             </FieldGroup>
           </NumberField>
@@ -71,7 +75,7 @@ function CartItem({ item }: PropsType) {
                 price: item.price,
               });
             }}
-            className="h-6 w-6 text-neutral-500"
+            className="h-6 w-6 text-rose-900/70 border-rose-100"
           >
             <X size={12} />
           </Button>

@@ -14,7 +14,7 @@ function App() {
     <motion.button
       whileTap={{ scale: 0.95 }}
       onClick={() => setInCartView(!inCartView)}
-      className="z-1 fixed bottom-4 left-4 flex items-center justify-center w-14 h-14 text-white bg-primary rounded-lg shadow-lg hover:bg-neutral-800 transition-colors cursor-pointer"
+      className="z-1 fixed bottom-4 left-4 flex items-center justify-center w-14 h-14 text-white bg-rose-400 rounded-lg shadow-lg shadow-rose-600/50 hover:bg-rose-500 transition-colors cursor-pointer"
     >
       {inCartView ?
         <ShoppingBag size={28} />
@@ -25,7 +25,7 @@ function App() {
   return (
     <ProductsProvider>
       <CartProvider>
-        <main className="min-h-screen">
+        <main className="min-h-screen bg-gradient-to-b from-pink-200 to-pink-50 bg-fixed">
           {!isOrdered && pageChangeButton}
           {inCartView ?
             <CartPage
