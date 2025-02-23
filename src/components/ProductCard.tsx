@@ -43,7 +43,7 @@ function ProductCard({ product }: PropsType) {
           <img
             src={img}
             alt={product.name}
-            className="absolute w-48 -top-20 left-42"
+            className="absolute max-w-48 max-h-48 -top-20 left-42"
           />
         </div>
         <div className="min-h-[3em]">

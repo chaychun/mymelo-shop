@@ -68,6 +68,48 @@ const initProducts: ProductType[] = [
     category: "PLUSH",
     price: 1400,
   },
+  {
+    id: "008",
+    name: "Sleepy Witch My Melody",
+    category: "FIGURE",
+    price: 650,
+  },
+  {
+    id: "009",
+    name: "Little White Bear My Melody",
+    category: "PLUSH",
+    price: 580,
+  },
+  {
+    id: "010",
+    name: "Red My Melody Phone Case",
+    category: "OTHERS",
+    price: 400,
+  },
+  {
+    id: "011",
+    name: "Valentine Angel My Melody",
+    category: "FIGURE",
+    price: 890,
+  },
+  {
+    id: "012",
+    name: "Blue Snow My Melody",
+    category: "FIGURE",
+    price: 650,
+  },
+  {
+    id: "013",
+    name: "Dream Princess My Melody",
+    category: "FIGURE",
+    price: 650,
+  },
+  {
+    id: "014",
+    name: "White Cat My Melody Keychain",
+    category: "OTHERS",
+    price: 440,
+  },
 ];
 
 // TODO: Implement actions
