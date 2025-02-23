@@ -70,7 +70,11 @@ function CartPage({ setInCartView, isOrdered, setIsOrdered }: PropsType) {
           filter: "",
         });
       }}
-      className={`z-1 w-14 h-14 fixed bottom-4 right-4 text-white flex justify-center items-center rounded-lg shadow-lg cursor-pointer ${isOrdered ? "bg-emerald-400" : "bg-primary"}`}
+      className={`z-1 w-14 h-14 fixed bottom-4 right-4 text-white flex justify-center items-center rounded-lg shadow-lg ${
+        isOrdered ? "bg-emerald-400 inert"
+        : isEmpty ? "bg-neutral-500 inert"
+        : "bg-primary cursor-pointer"
+      }`}
     >
       <Check size={28} />
     </motion.button>
