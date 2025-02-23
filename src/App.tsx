@@ -12,11 +12,11 @@ function App() {
     <motion.button
       whileTap={{ scale: 0.95 }}
       onClick={() => setInCartView(!inCartView)}
-      className="z-1 fixed bottom-4 left-4 flex items-center justify-center w-16 h-16 text-white bg-primary rounded-lg shadow-lg hover:bg-neutral-800 transition-colors cursor-pointer"
+      className="z-1 fixed bottom-4 left-4 flex items-center justify-center w-14 h-14 text-white bg-primary rounded-lg shadow-lg hover:bg-neutral-800 transition-colors cursor-pointer"
     >
       {inCartView ?
-        <ShoppingBag size={32} />
-      : <ShoppingCart size={32} />}
+        <ShoppingBag size={28} />
+      : <ShoppingCart size={28} />}
     </motion.button>
   );
 

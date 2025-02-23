@@ -63,13 +63,13 @@ function SearchBubble({ activeFilter, searchTerm, setSearchTerm }: PropsType) {
     return (
       <div
         className={cn(
-          "flex items-center gap-3 bg-neutral-100 border-1 border-neutral-300 rounded-lg px-2 h-16 two-column:h-11 shadow-xl focus-within:border-neutral-400 two-column:border-none",
+          "flex items-center gap-3 bg-neutral-100 border-1 border-neutral-300 rounded-lg px-2 h-14 two-column:h-11 shadow-xl focus-within:border-neutral-400 two-column:border-none",
           className,
         )}
       >
         <Search
           color="var(--color-neutral-400)"
-          size={isMulticolumn ? 24 : 32}
+          size={isMulticolumn ? 24 : 28}
         />
         <Input
           ref={inputRef}
@@ -85,7 +85,7 @@ function SearchBubble({ activeFilter, searchTerm, setSearchTerm }: PropsType) {
           }}
           onBlur={searchTerm === "" ? toggleExpand : () => {}}
           onKeyDown={handleKeyDown}
-          className="border-none shadow-none p-0 focus-visible:outline-none focus-visible:ring-transparent text-lg"
+          className="border-none shadow-none p-0 focus-visible:outline-none focus-visible:ring-transparent text-base"
         />
       </div>
     );
@@ -101,7 +101,7 @@ function SearchBubble({ activeFilter, searchTerm, setSearchTerm }: PropsType) {
             <motion.form
               initial={{ width: 0, opacity: 0 }}
               animate={{
-                width: "calc(100vw - 11rem)",
+                width: "calc(100vw - 10rem)",
                 opacity: 1,
               }}
               exit={{ width: 0, opacity: 0 }}
@@ -114,11 +114,11 @@ function SearchBubble({ activeFilter, searchTerm, setSearchTerm }: PropsType) {
         <motion.button
           whileTap={{ scale: 0.95 }}
           onClick={toggleExpand}
-          className="z-1 flex items-center justify-center w-16 h-16 text-white bg-primary rounded-lg shadow-lg focus:outline-none hover:bg-neutral-800 transition-colors cursor-pointer"
+          className="z-1 flex items-center justify-center w-14 h-14 text-white bg-primary rounded-lg shadow-lg focus:outline-none hover:bg-neutral-800 transition-colors cursor-pointer"
         >
           {isExpanded ?
-            <X size={32} />
-          : <Search size={32} />}
+            <X size={28} />
+          : <Search size={28} />}
         </motion.button>
       </div>
     );
