@@ -3,6 +3,7 @@ import ProductCard from "./ProductCard";
 import { Button } from "./ui/button";
 import { useState } from "react";
 import SearchBubble from "./SearchBubble";
+import EmptyState from "./EmptyState";
 
 const FILTERS = ["All", "Plush", "Figure", "Others"];
 
@@ -10,6 +11,8 @@ function ProductList() {
   const { products, productsDispatch, productActions } = useProducts();
   const [activeFilter, setActiveFilter] = useState("All");
   const [searchTerm, setSearchTerm] = useState("");
+
+  const isEmpty = products.length === 0;
 
   const filterButtons = FILTERS.map((filter) => {
     return (
@@ -24,7 +27,7 @@ function ProductList() {
             searchTerm: searchTerm,
           });
         }}
-        className="flex-grow"
+        className="flex-grow h-10 font-normal"
       >
         {filter}
       </Button>
@@ -38,7 +41,7 @@ function ProductList() {
   return (
     <>
       <header className="flex flex-wrap gap-8 justify-center items-center">
-        <div className="flex w-88 bg-neutral-50 p-1 gap-1 shadow-md rounded-lg justify-self-center h-11 items-center">
+        <div className="z-1 fixed top-4 left-4 flex w-[calc(100vw-2rem)] h-12 bg-neutral-100 p-1 gap-1 shadow-lg rounded-lg justify-self-center items-center">
           {filterButtons}
         </div>
         <SearchBubble
@@ -47,9 +50,12 @@ function ProductList() {
           setSearchTerm={setSearchTerm}
         />
       </header>
-      <div className="flex flex-wrap justify-center gap-8 gap-y-24 pt-24">
-        {productList}
-      </div>
+      {isEmpty ?
+        <EmptyState where="the search result" />
+      : <div className="flex flex-wrap justify-center gap-8 gap-y-24 pt-36">
+          {productList}
+        </div>
+      }
     </>
   );
 }
