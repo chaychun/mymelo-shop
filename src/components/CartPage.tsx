@@ -4,6 +4,7 @@ import { Button } from "./ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 import useCart from "@/hooks/useCart";
 import CartItem from "./CartItem";
+import useProducts from "@/hooks/useProducts";
 
 type PropsType = {
   setInCartView: React.Dispatch<React.SetStateAction<boolean>>;
@@ -13,6 +14,7 @@ type PropsType = {
 
 function CartPage({ setInCartView, isOrdered, setIsOrdered }: PropsType) {
   const { cart, cartDispatch, cartActions, totalPrice } = useCart();
+  const { productsDispatch, productActions } = useProducts();
 
   const orderSuccessPage = (
     <div className="min-h-screen flex flex-col justify-center items-center my-auto">
@@ -59,6 +61,10 @@ function CartPage({ setInCartView, isOrdered, setIsOrdered }: PropsType) {
           id: "",
           name: "",
           price: 0,
+        });
+        productsDispatch({
+          type: productActions.CLEAR_FILTERS,
+          filter: "",
         });
       }}
       className={`z-1 w-14 h-14 fixed bottom-4 right-4 text-white flex justify-center items-center rounded-lg shadow-lg cursor-pointer ${isOrdered ? "bg-emerald-400" : "bg-primary"}`}
