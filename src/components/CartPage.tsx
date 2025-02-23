@@ -1,7 +1,7 @@
 import React from "react";
 import { ArrowLeftIcon, Check, PackageCheck } from "lucide-react";
 import { Button } from "./ui/button";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import useCart from "@/hooks/useCart";
 import CartItem from "./CartItem";
 import useProducts from "@/hooks/useProducts";

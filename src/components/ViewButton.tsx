@@ -2,7 +2,6 @@ import { useMediaQuery } from "@uidotdev/usehooks";
 import { JSXElementConstructor, ReactElement, useState } from "react";
 import {
   Drawer,
-  DrawerClose,
   DrawerContent,
   DrawerDescription,
   DrawerFooter,
@@ -12,13 +11,7 @@ import {
 } from "./ui/drawer";
 import { Button } from "./ui/button";
 import { ProductType } from "@/contexts/ProductsContext";
-import {
-  Dialog,
-  DialogClose,
-  DialogContent,
-  DialogTitle,
-  DialogTrigger,
-} from "./ui/dialog";
+import { Dialog, DialogContent, DialogTitle, DialogTrigger } from "./ui/dialog";
 import { DialogFooter, DialogHeader, DialogDescription } from "./ui/dialog";
 import { NumberField } from "react-aria-components";
 import { FieldGroup } from "./ui/field";

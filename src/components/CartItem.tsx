@@ -1,4 +1,4 @@
-import { CartActionType, CartItemType } from "@/contexts/CartContext";
+import { CartItemType } from "@/contexts/CartContext";
 import React from "react";
 import {
   NumberField,
@@ -17,7 +17,7 @@ type PropsType = {
 function CartItem({ item }: PropsType) {
   const { cartDispatch, cartActions } = useCart();
 
-  const [initQty, setInitQty] = React.useState(item.qty);
+  const [initQty] = React.useState(item.qty);
 
   const img: string = new URL(
     `../assets/images/${item.id}.png`,
